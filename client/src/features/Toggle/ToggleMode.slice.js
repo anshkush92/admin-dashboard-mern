@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   mode: "dark",
+  // For testing purposes, I'm hardcoding the userId here, will be removing in future
+  userId: "63701cc1f03239b7f700000e",
 };
 
 const toggleModeSlice = createSlice({

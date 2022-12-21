@@ -73,3 +73,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 - [useLocation() Hook](https://www.youtube.com/watch?v=GlP2yASKjLM)
 - [<Outlet />](https://www.youtube.com/watch?v=dkKlhaeGO7E)
+- [React Query With Redux Toolkit](https://redux-toolkit.js.org/tutorials/rtk-query)
