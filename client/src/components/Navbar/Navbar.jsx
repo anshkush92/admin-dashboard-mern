@@ -17,7 +17,8 @@ import {
   ArrowDropDownOutlined,
 } from "@mui/icons-material";
 
-import { toggleMode } from "../../features/ToggleMode/ToggleMode.slice";
+import { toggleMode } from "../../features/Toggle/ToggleMode.slice";
+import { toggleSidebar } from "../../features/Toggle/ToggleSidebar.slice";
 import FlexBetween from "../Common/FlexBetween";
 
 const Navbar = () => {
@@ -31,7 +32,7 @@ const Navbar = () => {
       <Toolbar sx={{ justifyContent: "space-between" }}>
         {/* LEFT SIDE */}
         <FlexBetween>
-          <IconButton onClick={() => console.log("SideBar open / close")}>
+          <IconButton onClick={() => dispatch(toggleSidebar())}>
             <MenuIcon />
           </IconButton>
           <FlexBetween

@@ -11,7 +11,7 @@ import Dashboard from "./pages/Dashboard";
 function App() {
   // Gets the current mode state from the redux store
   const { mode } = useSelector((state) => state.toggleMode);
-  // console.log("🚀 ~ file: App.js:8 ~ App ~ mode", mode);
+  // // console.log("🚀 ~ file: App.js:8 ~ App ~ mode", mode);
 
   const theme = createTheme(themeSettings(mode));
 
