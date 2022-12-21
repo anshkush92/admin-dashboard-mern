@@ -54,9 +54,6 @@ mongoose
   })
   .then(() => {
     console.log("Successfully connected to the database");
-
-    /* Inserting the User data into the MongoDB "users" collection */
-    User.insertMany(dataUser);
   })
   .catch((err) => {
     console.log(err);
