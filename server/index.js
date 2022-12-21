@@ -18,6 +18,10 @@ const generalRoutes = require("./routes/general.route.js");
 const managementRoutes = require("./routes/management.route.js");
 const salesRoutes = require("./routes/sales.route.js");
 
+/* DATA IMPORTS */
+const User = require("./models/User.model.js");
+const dataUser = require("./data/User.data");
+
 /* CONFIGURATION */
 const app = express();
 // Parses incoming requests with JSON payloads
@@ -50,6 +54,9 @@ mongoose
   })
   .then(() => {
     console.log("Successfully connected to the database");
+
+    /* Inserting the User data into the MongoDB "users" collection */
+    User.insertMany(dataUser);
   })
   .catch((err) => {
     console.log(err);
