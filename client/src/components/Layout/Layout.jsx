@@ -20,7 +20,10 @@ const Layout = () => {
         height: "100%",
       }}
     >
-      <Sidebar isNonMobile={isNonMobile} drawerWidth="250px" />
+      <Sidebar
+        isNonMobile={isNonMobile}
+        drawerWidth={`${isNonMobile ? "275px" : "250px"}`}
+      />
 
       <Box>
         <Navbar />

@@ -126,6 +126,11 @@ const Sidebar = ({ drawerWidth, isNonMobile }) => {
                           activePage === lcText
                             ? theme.palette.primary[600]
                             : theme.palette.secondary[100],
+                        "&:hover": {
+                          backgroundColor:
+                            activePage === lcText &&
+                            theme.palette.secondary[300],
+                        },
                       }}
                     >
                       <ListItemIcon
