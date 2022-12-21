@@ -16,22 +16,7 @@ import {
   useTheme,
 } from "@mui/material";
 
-import {
-  SettingsOutlined,
-  ChevronLeft,
-  ChevronRightOutlined,
-  HomeOutlined,
-  ShoppingCartOutlined,
-  Groups2Outlined,
-  ReceiptLongOutlined,
-  PublicOutlined,
-  PointOfSaleOutlined,
-  TodayOutlined,
-  CalendarMonthOutlined,
-  AdminPanelSettingsOutlined,
-  TrendingUpOutlined,
-  PieChartOutlined,
-} from "@mui/icons-material";
+import { ChevronLeft, ChevronRightOutlined } from "@mui/icons-material";
 
 import FlexBetween from "../Common/FlexBetween";
 import { toggleSidebar } from "../../features/Toggle/ToggleSidebar.slice";
@@ -39,10 +24,10 @@ import navItems from "../../data/navItems";
 
 const Sidebar = ({ drawerWidth, isNonMobile }) => {
   const [activePage, setActivePage] = useState("");
-  console.log("🚀 ~ file: Sidebar.jsx:42 ~ Sidebar ~ activePage", activePage);
+  // console.log("🚀 ~ file: Sidebar.jsx:42 ~ Sidebar ~ activePage", activePage);
 
   const { isSidebarOpen } = useSelector((state) => state.toggleSidebar);
-  console.log("🚀 ~ file: Sidebar.jsx:39 ~ navItems", navItems);
+  // console.log("🚀 ~ file: Sidebar.jsx:39 ~ navItems", navItems);
 
   // Very Good use of useLocation() hook ---> https://www.youtube.com/watch?v=GlP2yASKjLM
   // To get the page on which we are currently
