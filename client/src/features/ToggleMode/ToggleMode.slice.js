@@ -10,6 +10,7 @@ const toggleModeSlice = createSlice({
   reducers: {
     toggleMode: (state) => {
       state.mode = state.mode === "dark" ? "light" : "dark";
+      // console.log("🚀 ~ file: ToggleMode.slice.js:13 ~ mode", state.mode);
     },
   },
 });

@@ -15,7 +15,7 @@ const reverseTokens = (tokensDark) => {
 };
 
 // color design tokens export
-export const tokensDark = {
+const tokensDark = {
   grey: {
     0: "#ffffff", // manually adjusted
     10: "#f6f6f6", // manually adjusted
@@ -58,10 +58,10 @@ export const tokensDark = {
   },
 };
 
-export const tokensLight = reverseTokens(tokensDark);
+const tokensLight = reverseTokens(tokensDark);
 
 // mui theme settings
-export const themeSettings = (mode) => {
+const themeSettings = (mode) => {
   return {
     palette: {
       mode: mode,
@@ -109,10 +109,8 @@ export const themeSettings = (mode) => {
           }),
     },
     typography: {
-      // To make sure that 1rem = 10px
-      htmlFontSize: 10,
       fontFamily: ["Inter", "sans-serif"].join(","),
-      fontSize: 12,
+
       h1: {
         fontFamily: ["Inter", "sans-serif"].join(","),
         fontSize: 40,
@@ -140,3 +138,6 @@ export const themeSettings = (mode) => {
     },
   };
 };
+
+export { tokensDark, tokensLight };
+export default themeSettings;
