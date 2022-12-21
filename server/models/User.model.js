@@ -1,5 +1,6 @@
 const { model, Schema, default: mongoose } = require("mongoose");
 
+// The "users" collection will have the following structure
 const userSchema = new Schema(
   {
     name: {
@@ -45,4 +46,4 @@ const userSchema = new Schema(
 
 const User = mongoose.model("User", userSchema);
 
-export default User;
+module.exports = User;
