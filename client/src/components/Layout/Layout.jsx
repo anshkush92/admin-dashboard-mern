@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Box, useMediaQuery } from "@mui/material";
 import { useSelector } from "react-redux";
@@ -16,8 +15,6 @@ const Layout = () => {
   const { userId } = useSelector((state) => state.toggleMode);
   // Trying how to request the data from the database using the RTK Query
   const { data } = useGetUsersQuery(userId);
-  console.log("🚀 ~ file: Layout.jsx:19 ~ Layout ~ data", data);
-
   return (
     <Box
       sx={{
