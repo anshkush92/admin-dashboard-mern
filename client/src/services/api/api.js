@@ -5,6 +5,7 @@ export const api = createApi({
   reducerPath: "adminapi",
   tagTypes: ["User", "Products"],
   endpoints: (builder) => ({
+    // Getting a particular user
     getUsers: builder.query({
       query: (id) => ({
         url: `/general/user/${id}`,
@@ -12,6 +13,7 @@ export const api = createApi({
       providesTags: ["User"],
     }),
 
+    // Getting all the products
     getProducts: builder.query({
       query: () => ({
         url: `/client/products`,
@@ -19,6 +21,7 @@ export const api = createApi({
       providesTags: ["Products"],
     }),
 
+    // Getting all the customers
     getCustomers: builder.query({
       query: () => ({
         url: `/client/customers`,
@@ -35,6 +38,14 @@ export const api = createApi({
       }),
       providesTags: ["Transactions"],
     }),
+
+    // Getting the data for the NIVO geography chart
+    getGeography: builder.query({
+      query: () => ({
+        url: `/client/geography`,
+      }),
+      providesTags: ["Geography"],
+    }),
   }),
 });
 
@@ -43,4 +54,5 @@ export const {
   useGetProductsQuery,
   useGetCustomersQuery,
   useGetTransactionsQuery,
+  useGetGeographyQuery,
 } = api;
