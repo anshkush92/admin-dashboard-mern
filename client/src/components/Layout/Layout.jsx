@@ -10,7 +10,8 @@ const Layout = () => {
   // Learn use case of <Outlet /> (Very Good) https://www.youtube.com/watch?v=dkKlhaeGO7E
 
   // Gives true if the screen is greater than 600px otherwise false
-  const isNonMobile = useMediaQuery("(min-width: 600px)");
+  const isNonMobile = useMediaQuery("(min-width: 725px)");
+  console.log("🚀 ~ file: Layout.jsx:14 ~ Layout ~ isNonMobile", isNonMobile);
 
   const { userId } = useSelector((state) => state.toggleMode);
   // Trying how to request the data from the database using the RTK Query

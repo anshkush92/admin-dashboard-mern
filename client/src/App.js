@@ -7,6 +7,7 @@ import themeSettings from "./theme";
 import Layout from "./components/Layout/Layout";
 
 import Dashboard from "./pages/Dashboard";
+import Products from "./pages/Products";
 
 function App() {
   // Gets the current mode state from the redux store
@@ -23,7 +24,8 @@ function App() {
         <Routes>
           <Route element={<Layout />}>
             <Route path="/" element={<Dashboard />} />
-            <Route path="/dashboard" element={<Dashboard />}></Route>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/products" element={<Products />} />
           </Route>
         </Routes>
       </ThemeProvider>

@@ -34,11 +34,6 @@ const Navbar = ({ user }) => {
   // State for managing the anchor element for the dropdown menu
   const [anchorEl, setAnchorEl] = useState(null);
   const isDropdownOpen = Boolean(anchorEl);
-  console.log(
-    "🚀 ~ file: Navbar.jsx:33 ~ Navbar ~ isDropdownOpen",
-    isDropdownOpen
-  );
-
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -46,8 +41,6 @@ const Navbar = ({ user }) => {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  console.log("🚀 ~ file: Navbar.jsx:25 ~ Navbar ~ user", user);
   const theme = useTheme();
   const dispatch = useDispatch();
 

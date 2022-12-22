@@ -28,13 +28,8 @@ import { toggleSidebar } from "../../features/Toggle/ToggleSidebar.slice";
 import navItems from "../../data/navItems";
 
 const Sidebar = ({ drawerWidth, isNonMobile, user }) => {
-  console.log("🚀 ~ file: Sidebar.jsx:26 ~ Sidebar ~ user", user);
   const [activePage, setActivePage] = useState("");
-  // console.log("🚀 ~ file: Sidebar.jsx:42 ~ Sidebar ~ activePage", activePage);
-
   const { isSidebarOpen } = useSelector((state) => state.toggleSidebar);
-  // console.log("🚀 ~ file: Sidebar.jsx:39 ~ navItems", navItems);
-
   // Very Good use of useLocation() hook ---> https://www.youtube.com/watch?v=GlP2yASKjLM
   // To get the page on which we are currently
   const { pathname } = useLocation();
@@ -55,7 +50,7 @@ const Sidebar = ({ drawerWidth, isNonMobile, user }) => {
 
   return (
     isSidebarOpen && (
-      <Box component="nav" height="100%">
+      <Box component="nav">
         <Drawer
           open={isSidebarOpen}
           onClose={() => dispatch(toggleSidebar())}
@@ -69,11 +64,10 @@ const Sidebar = ({ drawerWidth, isNonMobile, user }) => {
               boxSizing: "border-box",
               borderWidth: isNonMobile ? 0 : "2px",
               width: drawerWidth,
-              position: "relative",
             },
           }}
         >
-          <Box width="100%" marginBottom="8.25rem">
+          <Box width="100%">
             <Box sx={{ margin: "1.5rem 2rem 2rem 3rem" }}>
               <FlexBetween sx={{ color: theme.palette.secondary.main }}>
                 <Box
@@ -147,13 +141,13 @@ const Sidebar = ({ drawerWidth, isNonMobile, user }) => {
             </List>
           </Box>
 
-          <Box sx={{ position: "absolute", bottom: "2rem" }}>
+          <Box>
             <Divider />
             <FlexBetween
               sx={{
                 textTransform: "none",
-                gap: "2rem",
-                m: "1.5rem 2rem 0 3rem",
+                gap: "1.5rem",
+                m: "1.5rem 2rem 2rem 3rem",
               }}
             >
               <Box>
