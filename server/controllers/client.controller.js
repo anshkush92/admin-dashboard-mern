@@ -1,3 +1,5 @@
+const getCountryISO3 = require("country-iso-2-to-3");
+
 const Product = require("../models/Product.model.js");
 const ProductStat = require("../models/ProductStat.model.js");
 const User = require("../models/User.model.js");
@@ -75,4 +77,38 @@ const getTransactions = async (req, res, next) => {
   }
 };
 
-module.exports = { getProducts, getCustomers, getTransactions };
+const getGeography = async (req, res, next) => {
+  // Check the documentation of Nivo for geography chart and then try to format our data in that format
+
+  try {
+    const users = await User.find();
+
+    // Mapping the locations ----> {USA: 1, IND: 2, ...} format
+    const mappedLocations = users.reduce((acc, { country }) => {
+      // Converting the country code to ISO3
+      const countryISO3 = getCountryISO3(country);
+
+      // If the country is not in the object, then give it the value 1
+      if (!acc[countryISO3]) {
+        acc[countryISO3] = 0;
+      }
+
+      // Incrementing the value of the country, if present
+      acc[countryISO3] += 1;
+      return acc;
+    }, {});
+
+    // Converting the above mapped locations into the data, which NIVO wants
+    const formattedLocations = Object.entries(mappedLocations).map(
+      ([country, count]) => {
+        return { id: country, value: count };
+      }
+    );
+
+    res.status(200).json({ formattedLocations });
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
+module.exports = { getProducts, getCustomers, getTransactions, getGeography };
