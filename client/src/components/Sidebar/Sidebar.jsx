@@ -73,7 +73,7 @@ const Sidebar = ({ drawerWidth, isNonMobile, user }) => {
             },
           }}
         >
-          <Box width="100%" marginBottom="7.25rem">
+          <Box width="100%" marginBottom="8.25rem">
             <Box sx={{ margin: "1.5rem 2rem 2rem 3rem" }}>
               <FlexBetween sx={{ color: theme.palette.secondary.main }}>
                 <Box
