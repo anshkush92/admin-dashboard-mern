@@ -11,6 +11,7 @@ import Products from "./pages/Products";
 import Customers from "./pages/Customers";
 import Transactions from "./pages/Transactions";
 import Geography from "./pages/Geography";
+import Overview from "./pages/Overview";
 
 function App() {
   // Gets the current mode state from the redux store
@@ -32,6 +33,7 @@ function App() {
             <Route path="/customers" element={<Customers />} />
             <Route path="/transactions" element={<Transactions />} />
             <Route path="/geography" element={<Geography />} />
+            <Route path="/overview" element={<Overview />} />
           </Route>
         </Routes>
       </ThemeProvider>
