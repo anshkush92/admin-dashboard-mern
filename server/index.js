@@ -31,6 +31,9 @@ const dataProductStat = require("./data/ProductStat.data");
 const Transaction = require("./models/Transaction.model.js");
 const dataTransaction = require("./data/Transaction.data");
 
+const OverallStat = require("./models/OverallStat.model.js");
+const dataOverallStat = require("./data/OverallStat.data");
+
 /* CONFIGURATION */
 const app = express();
 // Parses incoming requests with JSON payloads
