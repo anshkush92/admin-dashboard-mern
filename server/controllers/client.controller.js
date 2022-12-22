@@ -1,5 +1,6 @@
 const Product = require("../models/Product.model.js");
 const ProductStat = require("../models/ProductStat.model.js");
+const User = require("../models/User.model.js");
 
 const getProducts = async (req, res, next) => {
   try {
@@ -23,4 +24,13 @@ const getProducts = async (req, res, next) => {
   }
 };
 
-module.exports = { getProducts };
+const getCustomers = async (req, res, next) => {
+  try {
+    const customers = await User.find({ role: "user" }).select("-password");
+    res.status(200).json({ customers });
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
+module.exports = { getProducts, getCustomers };

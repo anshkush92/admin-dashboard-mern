@@ -21,10 +21,15 @@ const salesRoutes = require("./routes/sales.route.js");
 /* DATA IMPORTS */
 const User = require("./models/User.model.js");
 const dataUser = require("./data/User.data");
+
 const Product = require("./models/Product.model.js");
 const dataProduct = require("./data/Product.data");
+
 const ProductStat = require("./models/ProductStat.model.js");
 const dataProductStat = require("./data/ProductStat.data");
+
+const Transaction = require("./models/Transaction.model.js");
+const dataTransaction = require("./data/Transaction.data");
 
 /* CONFIGURATION */
 const app = express();

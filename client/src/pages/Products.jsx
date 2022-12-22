@@ -7,8 +7,6 @@ import ProductCard from "../components/Common/ProductCard";
 const Products = () => {
   // For getting the products from the Database, using RTK Query
   const { data, isLoading } = useGetProductsQuery();
-  console.log("🚀 ~ file: Products.jsx:23 ~ Products ~ data", data);
-
   return (
     <Box m="1.5rem 2.5rem">
       <Header title="PRODUCTS" subtitle="See your list of products .." />

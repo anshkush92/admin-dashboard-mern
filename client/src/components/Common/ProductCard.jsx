@@ -33,7 +33,7 @@ const ProductCard = ({
     >
       <CardContent>
         <Typography
-          sx={{ fontSize: 14, color: theme.palette.secondary[700] }}
+          sx={{ fontSize: 14, color: theme.palette.grey[600] }}
           gutterBottom
         >
           {category.toUpperCase()}
