@@ -6,6 +6,13 @@ import {
   Toolbar,
   IconButton,
   InputBase,
+  Button,
+  Avatar,
+  Typography,
+  Box,
+  Menu,
+  MenuItem,
+  ListItemIcon,
 } from "@mui/material";
 
 import {
@@ -15,6 +22,8 @@ import {
   Search,
   SettingsOutlined,
   ArrowDropDownOutlined,
+  ArrowDropUpOutlined,
+  Logout,
 } from "@mui/icons-material";
 
 import { toggleMode } from "../../features/Toggle/ToggleMode.slice";
@@ -22,6 +31,22 @@ import { toggleSidebar } from "../../features/Toggle/ToggleSidebar.slice";
 import FlexBetween from "../Common/FlexBetween";
 
 const Navbar = ({ user }) => {
+  // State for managing the anchor element for the dropdown menu
+  const [anchorEl, setAnchorEl] = useState(null);
+  const isDropdownOpen = Boolean(anchorEl);
+  console.log(
+    "🚀 ~ file: Navbar.jsx:33 ~ Navbar ~ isDropdownOpen",
+    isDropdownOpen
+  );
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   console.log("🚀 ~ file: Navbar.jsx:25 ~ Navbar ~ user", user);
   const theme = useTheme();
   const dispatch = useDispatch();
@@ -63,6 +88,65 @@ const Navbar = ({ user }) => {
           <IconButton>
             <SettingsOutlined />
           </IconButton>
+          <FlexBetween>
+            <Button
+              onClick={handleClick}
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                textTransform: "none",
+                gap: "1rem",
+              }}
+            >
+              <Avatar alt={user.name} />
+              <Box textAlign="left">
+                <Typography
+                  fontWeight="bold"
+                  fontSize="0.85rem"
+                  sx={{ color: theme.palette.secondary[100] }}
+                >
+                  {user.name}
+                </Typography>
+
+                <Typography
+                  fontSize="0.75rem"
+                  sx={{ color: theme.palette.secondary[200] }}
+                >
+                  {user.occupation}
+                </Typography>
+              </Box>
+              {isDropdownOpen ? (
+                <ArrowDropDownOutlined
+                  sx={{
+                    color: theme.palette.secondary[300],
+                    fontSize: "35px",
+                  }}
+                />
+              ) : (
+                <ArrowDropUpOutlined
+                  sx={{
+                    color: theme.palette.secondary[300],
+                    fontSize: "35px",
+                  }}
+                />
+              )}
+            </Button>
+            <Menu
+              anchorEl={anchorEl}
+              disableScrollLock={true}
+              open={isDropdownOpen}
+              onClose={handleClose}
+              anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            >
+              <MenuItem onClick={handleClose}>
+                <ListItemIcon>
+                  <Logout fontSize="small" />
+                </ListItemIcon>
+                Logout
+              </MenuItem>
+            </Menu>
+          </FlexBetween>
         </FlexBetween>
       </Toolbar>
     </AppBar>

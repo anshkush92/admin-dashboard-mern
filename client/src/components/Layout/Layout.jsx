@@ -32,7 +32,7 @@ const Layout = () => {
         user={data || {}}
       />
 
-      <Box>
+      <Box width="100%" flexGrow={1}>
         <Navbar user={data || {}} />
         <Outlet />
       </Box>
