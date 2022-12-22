@@ -3,7 +3,14 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const api = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: process.env.REACT_APP_BASE_URL }),
   reducerPath: "adminapi",
-  tagTypes: ["User", "Products"],
+  tagTypes: [
+    "User",
+    "Products",
+    "Customers",
+    "Transactions",
+    "Geography",
+    "Sales",
+  ],
   endpoints: (builder) => ({
     // Getting a particular user
     getUsers: builder.query({
@@ -46,6 +53,14 @@ export const api = createApi({
       }),
       providesTags: ["Geography"],
     }),
+
+    // Getting the sales data for the NIVO line chart
+    getSales: builder.query({
+      query: () => ({
+        url: `/sales/sales`,
+      }),
+      providesTags: ["Sales"],
+    }),
   }),
 });
 
@@ -55,4 +70,5 @@ export const {
   useGetCustomersQuery,
   useGetTransactionsQuery,
   useGetGeographyQuery,
+  useGetSalesQuery,
 } = api;
