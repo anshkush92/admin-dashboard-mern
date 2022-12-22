@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
+  Avatar,
   Box,
   Divider,
   Drawer,
@@ -16,13 +17,18 @@ import {
   useTheme,
 } from "@mui/material";
 
-import { ChevronLeft, ChevronRightOutlined } from "@mui/icons-material";
+import {
+  ChevronLeft,
+  ChevronRightOutlined,
+  SettingsOutlined,
+} from "@mui/icons-material";
 
 import FlexBetween from "../Common/FlexBetween";
 import { toggleSidebar } from "../../features/Toggle/ToggleSidebar.slice";
 import navItems from "../../data/navItems";
 
-const Sidebar = ({ drawerWidth, isNonMobile }) => {
+const Sidebar = ({ drawerWidth, isNonMobile, user }) => {
+  console.log("🚀 ~ file: Sidebar.jsx:26 ~ Sidebar ~ user", user);
   const [activePage, setActivePage] = useState("");
   // console.log("🚀 ~ file: Sidebar.jsx:42 ~ Sidebar ~ activePage", activePage);
 
@@ -49,7 +55,7 @@ const Sidebar = ({ drawerWidth, isNonMobile }) => {
 
   return (
     isSidebarOpen && (
-      <Box component="nav">
+      <Box component="nav" height="100%">
         <Drawer
           open={isSidebarOpen}
           onClose={() => dispatch(toggleSidebar())}
@@ -59,14 +65,15 @@ const Sidebar = ({ drawerWidth, isNonMobile }) => {
             width: drawerWidth,
             "& .MuiDrawer-paper": {
               color: theme.palette.secondary[200],
-              backgrounDColor: theme.palette.background.alt,
+              backgroundColor: theme.palette.background.alt,
               boxSizing: "border-box",
               borderWidth: isNonMobile ? 0 : "2px",
               width: drawerWidth,
+              position: "relative",
             },
           }}
         >
-          <Box width="100%">
+          <Box width="100%" marginBottom="7.25rem">
             <Box sx={{ margin: "1.5rem 2rem 2rem 3rem" }}>
               <FlexBetween sx={{ color: theme.palette.secondary.main }}>
                 <Box
@@ -138,6 +145,38 @@ const Sidebar = ({ drawerWidth, isNonMobile }) => {
                 );
               })}
             </List>
+          </Box>
+
+          <Box sx={{ position: "absolute", bottom: "2rem" }}>
+            <Divider />
+            <FlexBetween
+              sx={{
+                textTransform: "none",
+                gap: "2rem",
+                m: "1.5rem 2rem 0 3rem",
+              }}
+            >
+              <Box>
+                <Avatar alt={user.name} />
+              </Box>
+              <Box textAlign="left">
+                <Typography
+                  fontWeight="bold"
+                  fontSize="0.9rem"
+                  sx={{ color: theme.palette.secondary[100] }}
+                >
+                  {user.name}
+                </Typography>
+
+                <Typography
+                  fontSize="0.8rem"
+                  sx={{ color: theme.palette.secondary[200] }}
+                >
+                  {user.occupation}
+                </Typography>
+              </Box>
+              <SettingsOutlined sx={{ color: theme.palette.secondary[300] }} />
+            </FlexBetween>
           </Box>
         </Drawer>
       </Box>

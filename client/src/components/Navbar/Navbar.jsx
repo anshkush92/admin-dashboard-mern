@@ -21,7 +21,8 @@ import { toggleMode } from "../../features/Toggle/ToggleMode.slice";
 import { toggleSidebar } from "../../features/Toggle/ToggleSidebar.slice";
 import FlexBetween from "../Common/FlexBetween";
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
+  console.log("🚀 ~ file: Navbar.jsx:25 ~ Navbar ~ user", user);
   const theme = useTheme();
   const dispatch = useDispatch();
 

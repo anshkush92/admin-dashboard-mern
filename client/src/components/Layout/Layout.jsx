@@ -15,7 +15,7 @@ const Layout = () => {
 
   const { userId } = useSelector((state) => state.toggleMode);
   // Trying how to request the data from the database using the RTK Query
-  const { data, isLoading, error } = useGetUsersQuery(userId);
+  const { data } = useGetUsersQuery(userId);
   console.log("🚀 ~ file: Layout.jsx:19 ~ Layout ~ data", data);
 
   return (
@@ -29,10 +29,11 @@ const Layout = () => {
       <Sidebar
         isNonMobile={isNonMobile}
         drawerWidth={`${isNonMobile ? "275px" : "250px"}`}
+        user={data || {}}
       />
 
       <Box>
-        <Navbar />
+        <Navbar user={data || {}} />
         <Outlet />
       </Box>
     </Box>
