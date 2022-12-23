@@ -35,6 +35,22 @@ const getUserPerformance = async (req, res, next) => {
       // Flattens the array of affiliateStats into a single document
       { $unwind: "$affiliateStats" },
     ]);
+
+    // Getting the sales of the user by using the "affiliateSales" field in the "affiliateStats" collection
+    const saleTransactions = await Promise.all(
+      userWithStats[0].affiliateStats.affiliateSales.map((id) => {
+        return Transaction.findById(id);
+      })
+    );
+
+    // Filtering out the null values ----> Means transaction that don't have user are removed
+    const filteredSaleTransactions = saleTransactions.filter(
+      (transaction) => transaction !== null
+    );
+
+    res
+      .status(200)
+      .json({ user: userWithStats[0], sales: filteredSaleTransactions });
   } catch (error) {
     res.status(404).json({ message: error.message });
   }
