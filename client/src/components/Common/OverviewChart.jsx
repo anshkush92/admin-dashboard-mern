@@ -6,8 +6,6 @@ import { useGetSalesQuery } from "../../services/api/api";
 
 const OverviewChart = ({ isDashboard = false, view }) => {
   const { data, isLoading } = useGetSalesQuery();
-  console.log("🚀 ~ file: OverviewChart.jsx:9 ~ OverviewChart ~ data", data);
-
   const theme = useTheme();
 
   // To make sure that this value doesn't change every time the component re-renders
@@ -15,7 +13,7 @@ const OverviewChart = ({ isDashboard = false, view }) => {
     if (!data) return [];
 
     const { overallStat } = data;
-    const { dailyData, monthlyData } = overallStat[0];
+    const { monthlyData } = overallStat[0];
 
     const totalSalesLine = {
       id: "totalSales",
