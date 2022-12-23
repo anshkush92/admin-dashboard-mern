@@ -18,22 +18,6 @@ const generalRoutes = require("./routes/general.route.js");
 const managementRoutes = require("./routes/management.route.js");
 const salesRoutes = require("./routes/sales.route.js");
 
-/* DATA IMPORTS */
-const User = require("./models/User.model.js");
-const dataUser = require("./data/User.data");
-
-const Product = require("./models/Product.model.js");
-const dataProduct = require("./data/Product.data");
-
-const ProductStat = require("./models/ProductStat.model.js");
-const dataProductStat = require("./data/ProductStat.data");
-
-const Transaction = require("./models/Transaction.model.js");
-const dataTransaction = require("./data/Transaction.data");
-
-const OverallStat = require("./models/OverallStat.model.js");
-const dataOverallStat = require("./data/OverallStat.data");
-
 /* CONFIGURATION */
 const app = express();
 // Parses incoming requests with JSON payloads
