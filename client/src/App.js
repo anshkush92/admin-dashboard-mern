@@ -15,6 +15,7 @@ import Overview from "./pages/Overview";
 import Daily from "./pages/Daily";
 import Monthly from "./pages/Monthly";
 import Breakdown from "./pages/Breakdown";
+import Admins from "./pages/Admins";
 
 function App() {
   // Gets the current mode state from the redux store
@@ -40,6 +41,7 @@ function App() {
             <Route path="/daily" element={<Daily />} />
             <Route path="/monthly" element={<Monthly />} />
             <Route path="/breakdown" element={<Breakdown />} />
+            <Route path="/admin" element={<Admins />} />
           </Route>
         </Routes>
       </ThemeProvider>
