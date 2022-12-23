@@ -44,7 +44,7 @@ const Monthly = () => {
     <Box m="1.5rem 2.5rem">
       <Header title="MONTHLY SALES" subtitle="Chart of monthly sales" />
       <Box mt="20px" pb="4rem">
-        <Box height="90vh">
+        <Box height="75vh">
           {data ? (
             <ResponsiveLine
               data={formattedData}
