@@ -4,7 +4,11 @@ import { ResponsivePie } from "@nivo/pie";
 import { useGetSalesQuery } from "../../services/api/api";
 
 const BreakdownChart = ({ isDashboard = false }) => {
-  const { data, isLoading } = useGetSalesQuery();
+  const { data, isLoading, error } = useGetSalesQuery();
+  console.log(
+    "🚀 ~ file: BreakdownChart.jsx:8 ~ BreakdownChart ~ error",
+    error
+  );
   console.log("🚀 ~ file: BreakdownChart.jsx:8 ~ BreakdownChart ~ data", data);
 
   const theme = useTheme();
