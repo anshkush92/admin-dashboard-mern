@@ -29,7 +29,7 @@ const Dashboard = () => {
   const { data, isLoading } = useGetDashboardQuery();
   return (
     <Box m="1.5rem 2.5rem">
-      <FlexBetween>
+      <FlexBetween flexDirection={{ md: "row", xs: "column" }}>
         <Header title="DASHBOARD" subtitle="Welcome to your dashboard" />
 
         <Box>
