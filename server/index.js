@@ -37,6 +37,16 @@ app.use("/general", generalRoutes);
 app.use("/management", managementRoutes);
 app.use("/sales", salesRoutes);
 
+app.get("/", async (req, res, next) => {
+  try {
+    res.status(200).json({
+      message: "Welcome to the MOCK DATA API for the ADMIN DASHBOARD",
+    });
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+});
+
 /* ENVIRONMENT VARIABLES */
 const MONGODB_URI = process.env.MONGODB_URI;
 const PORT = process.env.PORT || 5000;
